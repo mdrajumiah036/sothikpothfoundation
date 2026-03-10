@@ -1,5 +1,11 @@
+/**
+ * Footer Component
+ * Edit contact info in src/data/content.ts (contactInfo)
+ * Edit text in src/data/content.ts (footer.*)
+ */
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { contactInfo } from "@/data/content";
 import { Heart, Facebook, Twitter, Instagram, Youtube, Mail } from "lucide-react";
 
 const Footer = () => {
@@ -17,15 +23,20 @@ const Footer = () => {
                 <Heart className="w-5 h-5" />
               </div>
               <span className={`text-lg font-bold font-display ${bn}`}>
-                {language === "bn" ? "আমার বাংলাদেশ" : "Amar Bangladesh"}
+                {t("site.name")}
               </span>
             </div>
             <p className={`text-primary-foreground/80 text-sm leading-relaxed ${bn}`}>
               {t("footer.desc")}
             </p>
             <div className="flex gap-3 mt-6">
-              {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors">
+              {[
+                { Icon: Facebook, url: contactInfo.socialLinks.facebook },
+                { Icon: Twitter, url: contactInfo.socialLinks.twitter },
+                { Icon: Instagram, url: contactInfo.socialLinks.instagram },
+                { Icon: Youtube, url: contactInfo.socialLinks.youtube },
+              ].map(({ Icon, url }, i) => (
+                <a key={i} href={url} className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors">
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
@@ -56,8 +67,9 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-primary-foreground/80">
               <p className={bn}>{t("causes.education")}</p>
               <p className={bn}>{t("causes.health")}</p>
-              <p className={bn}>{t("causes.water")}</p>
+              <p className={bn}>{t("causes.food")}</p>
               <p className={bn}>{t("causes.women")}</p>
+              <p className={bn}>{t("causes.disaster")}</p>
             </div>
           </div>
 
@@ -65,11 +77,11 @@ const Footer = () => {
           <div>
             <h4 className={`font-display font-semibold mb-4 ${bn}`}>{t("nav.contact")}</h4>
             <div className="space-y-3 text-sm text-primary-foreground/80">
-              <p>House 42, Road 7, Dhanmondi<br />Dhaka 1205, Bangladesh</p>
-              <p>+880 1700-000000</p>
+              <p className="whitespace-pre-line">{contactInfo.address}</p>
+              <p>{contactInfo.phone}</p>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>info@amarbangladesh.org</span>
+                <span>{contactInfo.email}</span>
               </div>
             </div>
           </div>
@@ -77,7 +89,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className={`text-sm text-primary-foreground/70 ${bn}`}>
-            © 2024 Amar Bangladesh Foundation. {t("footer.rights")}
+            © {new Date().getFullYear()} {t("site.name")}. {t("footer.rights")}
           </p>
           <Link
             to="/donate"

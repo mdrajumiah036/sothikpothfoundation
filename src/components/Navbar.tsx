@@ -1,3 +1,8 @@
+/**
+ * Navbar Component
+ * Sticky navigation with language switcher and mobile menu.
+ * Edit nav links labels in src/data/content.ts (nav.*)
+ */
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -27,7 +32,7 @@ const Navbar = () => {
             <Heart className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className={`text-lg font-bold font-display text-foreground ${language === "bn" ? "font-bangla" : ""}`}>
-            {language === "bn" ? "আমার বাংলাদেশ" : "Amar Bangladesh"}
+            {t("site.name")}
           </span>
         </Link>
 

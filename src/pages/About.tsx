@@ -1,16 +1,23 @@
+/**
+ * About Page
+ * Content sourced from src/data/content.ts (aboutpage.*)
+ * Edit goals and descriptions there.
+ */
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Target, Eye, BookOpen } from "lucide-react";
+import { Target, Eye, BookOpen, CheckCircle, Heart } from "lucide-react";
 import aboutBg from "@/assets/about-bg.jpg";
 
 const About = () => {
   const { t, language } = useLanguage();
   const bn = language === "bn" ? "font-bangla" : "";
 
-  const sections = [
-    { icon: Target, title: t("aboutpage.mission.title"), desc: t("aboutpage.mission.desc") },
-    { icon: Eye, title: t("aboutpage.vision.title"), desc: t("aboutpage.vision.desc") },
-    { icon: BookOpen, title: t("aboutpage.story.title"), desc: t("aboutpage.story.desc") },
+  const goals = [
+    t("aboutpage.goal1"),
+    t("aboutpage.goal2"),
+    t("aboutpage.goal3"),
+    t("aboutpage.goal4"),
+    t("aboutpage.goal5"),
   ];
 
   return (
@@ -24,9 +31,24 @@ const About = () => {
         </AnimatedSection>
       </section>
 
+      {/* Introduction */}
       <section className="section-padding">
+        <div className="container mx-auto max-w-4xl">
+          <AnimatedSection>
+            <p className={`text-lg text-muted-foreground leading-relaxed ${bn}`}>
+              {t("aboutpage.intro")}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="section-padding section-alt">
         <div className="container mx-auto max-w-4xl space-y-16">
-          {sections.map((s, i) => (
+          {[
+            { icon: Target, title: t("aboutpage.mission.title"), desc: t("aboutpage.mission.desc") },
+            { icon: Eye, title: t("aboutpage.vision.title"), desc: t("aboutpage.vision.desc") },
+          ].map((s, i) => (
             <AnimatedSection key={i} delay={i * 0.1}>
               <div className="flex gap-6 items-start">
                 <div className="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center shrink-0">
@@ -39,6 +61,42 @@ const About = () => {
               </div>
             </AnimatedSection>
           ))}
+        </div>
+      </section>
+
+      {/* Goals */}
+      <section className="section-padding">
+        <div className="container mx-auto max-w-4xl">
+          <AnimatedSection>
+            <div className="flex gap-6 items-start">
+              <div className="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center shrink-0">
+                <BookOpen className="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <h2 className={`text-2xl font-display font-bold text-foreground ${bn}`}>{t("aboutpage.goals.title")}</h2>
+                <ul className="mt-4 space-y-3">
+                  {goals.map((goal, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <span className={`text-muted-foreground leading-relaxed ${bn}`}>{goal}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Belief Statement */}
+      <section className="gradient-primary section-padding">
+        <div className="container mx-auto max-w-3xl text-center">
+          <AnimatedSection>
+            <Heart className="w-10 h-10 text-primary-foreground/80 mx-auto mb-4" />
+            <p className={`text-xl md:text-2xl text-primary-foreground leading-relaxed font-medium italic ${bn}`}>
+              "{t("aboutpage.belief")}"
+            </p>
+          </AnimatedSection>
         </div>
       </section>
     </div>
