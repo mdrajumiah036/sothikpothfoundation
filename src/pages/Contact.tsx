@@ -1,5 +1,11 @@
+/**
+ * Contact Page
+ * Contact details are in src/data/content.ts (contactInfo).
+ * Edit there to update address, phone, email, map.
+ */
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection from "@/components/AnimatedSection";
+import { contactInfo } from "@/data/content";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 
 const Contact = () => {
@@ -27,7 +33,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className={`font-semibold text-foreground ${bn}`}>{t("contact.address")}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">House 42, Road 7, Dhanmondi<br />Dhaka 1205, Bangladesh</p>
+                    <p className="text-sm text-muted-foreground mt-1 whitespace-pre-line">{contactInfo.address}</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -38,7 +44,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className={`font-semibold text-foreground ${bn}`}>{t("contact.phone")}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">+880 1700-000000</p>
+                    <p className="text-sm text-muted-foreground mt-1">{contactInfo.phone}</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -49,7 +55,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className={`font-semibold text-foreground ${bn}`}>{t("contact.email")}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">info@amarbangladesh.org</p>
+                    <p className="text-sm text-muted-foreground mt-1">{contactInfo.email}</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -58,7 +64,7 @@ const Contact = () => {
               <AnimatedSection delay={0.3}>
                 <div className="rounded-2xl overflow-hidden shadow-sm border border-border">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.2587562064037!2d90.37481021498266!3d23.746395584589567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b7a55cd36b%3A0x7b1576b60152e4dd!2sDhanmondi%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
+                    src={contactInfo.mapUrl}
                     width="100%"
                     height="220"
                     style={{ border: 0 }}
