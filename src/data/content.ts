@@ -253,18 +253,18 @@ export const siteContent: Translations = {
 // ============================================
 export const teamMembers = [
   {
-    nameEn: "Dr. Ariful Islam",
-    nameBn: "ড. আরিফুল ইসলাম",
+    nameEn: "Md. Raju Miah",
+    nameBn: "মোঃ রাজু মিয়া",
     roleEn: "Founder & Chairman",
     roleBn: "প্রতিষ্ঠাতা ও চেয়ারম্যান",
-    bioEn: "Development professional with 20 years of experience.",
-    bioBn: "২০ বছরের অভিজ্ঞতা সহ উন্নয়ন পেশাদার।",
+    bioEn: "Development professional with 4 years of experience.",
+    bioBn: "08 বছরের অভিজ্ঞতা সহ উন্নয়ন পেশাদার।",
     // Change the image import path to update photos
     imageKey: "team-1",
   },
   {
-    nameEn: "Farzana Akter",
-    nameBn: "ফারজানা আক্তার",
+    nameEn: "Md. Mofizul Islam",
+    nameBn: "মোঃ মফিজুল ইসলাম",
     roleEn: "Executive Director",
     roleBn: "নির্বাহী পরিচালক",
     bioEn: "Expert in NGO management and governance.",
@@ -276,8 +276,8 @@ export const teamMembers = [
     nameBn: "তানভীর হোসেন",
     roleEn: "Program Director",
     roleBn: "প্রোগ্রাম ডিরেক্টর",
-    bioEn: "15 years of community development experience.",
-    bioBn: "কমিউনিটি উন্নয়নে ১৫ বছরের অভিজ্ঞতা।",
+    bioEn: "1 years of community development experience.",
+    bioBn: "কমিউনিটি উন্নয়নে ১ বছরের অভিজ্ঞতা।",
     imageKey: "team-3",
   },
   {
@@ -317,12 +317,12 @@ export const testimonials = [
 // CONTACT INFO - Edit these to update contact details
 // ============================================
 export const contactInfo = {
-  address: "House 42, Road 7, Dhanmondi\nDhaka 1205, Bangladesh",
-  phone: "+880 1700-000000",
-  email: "info@sothikpoth.org",
+  address: "Kurigram, Bangladesh",
+  phone: "+880 1619860990",
+  email: "sothikpothfoundation@gmail.com",
   mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.2587562064037!2d90.37481021498266!3d23.746395584589567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b7a55cd36b%3A0x7b1576b60152e4dd!2sDhanmondi%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd",
   socialLinks: {
-    facebook: "#",
+    facebook: "https://www.facebook.com/sothikpothfoundation/",
     twitter: "#",
     instagram: "#",
     youtube: "#",
